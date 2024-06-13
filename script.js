@@ -120,7 +120,7 @@ function placeBet(choice) {
     setTimeout(() => {
         let outcome;
 
-        if (betAmount > 170) {
+        if (betAmount > 100) {
             // Apply 20% lose rate for bets greater than 170 diamonds
             outcome = Math.random() < 0.15 ? 'lose' : 'win';
         } else {
@@ -128,7 +128,7 @@ function placeBet(choice) {
         }
 
         if (outcome === 'win') {
-            balance += betAmount * 1.5;  // Payout changed to 2 times the bet amount
+            balance += betAmount * 0.5;  // Payout changed to 2 times the bet amount
             errorElement.textContent = `You won! Your new balance is ${formatBalance(balance)} diamonds.`;
         } else {
             balance -= betAmount;
