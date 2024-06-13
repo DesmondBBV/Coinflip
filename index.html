@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muntflip Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Page -->
+        <section id="landing-page" class="page active">
+            <h1>Welcome to Muntflip</h1>
+            <input type="text" id="voucher-code" placeholder="Enter your voucher code">
+            <button onclick="validateVoucher()">Submit</button>
+            <p id="voucher-error" class="error"></p>
+        </section>
+        
+        <!-- Game Page -->
+        <section id="game-page" class="page">
+            <h1>Muntflip Game</h1>
+            <p>Balance: <span id="balance">0</span> diamonds</p>
+            <input type="number" id="bet-amount" placeholder="Enter your bet amount">
+            <div class="bet-buttons">
+                <button onclick="placeBet('kop')">Bet on Kop</button>
+                <button onclick="placeBet('munt')">Bet on Munt</button>
+            </div>
+            <div id="coin" class="coin"></div>
+            <button onclick="cashOut()">Cash Out</button>
+            <p id="game-error" class="error"></p>
+            <button class="add-voucher" onclick="showVoucherInput()">Add Voucher</button>
+            <input type="text" id="new-voucher-code" placeholder="Enter new voucher code">
+        </section>
+        
+        <!-- Cash-Out Page -->
+        <section id="cash-out-page" class="page">
+            <h1>Cash Out</h1>
+            <p>Your encoded balance is:</p>
+            <textarea id="encoded-balance" readonly></textarea>
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <p>Write this code down and give it to Benjamin.</p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
