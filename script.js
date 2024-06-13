@@ -100,17 +100,17 @@ function placeBet(choice) {
     const coin = document.getElementById('coin');
 
     if (isNaN(betAmount)) {
-        errorElement.textContent = 'Vul een nummer als inzet.';
+        errorElement.textContent = 'Please enter a numeric value for the bet amount.';
         return;
     }
     
     if (betAmount <= 0) {
-        errorElement.textContent = 'Inzet moet meer dan 0 zijn.';
+        errorElement.textContent = 'Bet amount must be greater than zero.';
         return;
     }
 
     if (betAmount > balance) {
-        errorElement.textContent = 'Inzet kan niet meer dan huidig saldo zijn.';
+        errorElement.textContent = 'Bet amount cannot exceed current balance.';
         return;
     }
 
@@ -128,11 +128,11 @@ function placeBet(choice) {
         }
 
         if (outcome === 'win') {
-            balance += betAmount * 2;
-            errorElement.textContent = `Je wint! Je saldo is nu ${formatBalance(balance)} diamonds.`;
+            balance += betAmount * 2;  // Payout changed to 2 times the bet amount
+            errorElement.textContent = `You won! Your new balance is ${formatBalance(balance)} diamonds.`;
         } else {
             balance -= betAmount;
-            errorElement.textContent = `Je verliest! Je saldo is nu ${formatBalance(balance)} diamonds.`;
+            errorElement.textContent = `You lost! Your new balance is ${formatBalance(balance)} diamonds.`;
         }
 
         if (balance < 0) {
