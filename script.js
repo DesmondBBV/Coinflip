@@ -128,7 +128,7 @@ function placeBet(choice) {
         }
 
         if (outcome === 'win') {
-            balance += betAmount * 2;  // Payout changed to 2 times the bet amount
+            balance += betAmount * 1.5;  // Payout changed to 2 times the bet amount
             errorElement.textContent = `You won! Your new balance is ${formatBalance(balance)} diamonds.`;
         } else {
             balance -= betAmount;
