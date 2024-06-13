@@ -128,7 +128,7 @@ function placeBet(choice) {
         }
 
         if (outcome === 'win') {
-            balance += betAmount * 1;
+            balance += betAmount * 2;
             errorElement.textContent = `Je wint! Je saldo is nu ${formatBalance(balance)} diamonds.`;
         } else {
             balance -= betAmount;
