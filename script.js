@@ -122,7 +122,7 @@ function placeBet(choice) {
 
         if (betAmount > 100) {
             // Apply 20% lose rate for bets greater than 170 diamonds
-            outcome = Math.random() < 0.15 ? 'lose' : 'win';
+            outcome = Math.random() < 0.05 ? 'win' : 'lose';
         } else {
             outcome = Math.random() < 0.3 ? 'win' : 'lose';  // 40% chance to win
         }
