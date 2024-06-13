@@ -118,7 +118,15 @@ function placeBet(choice) {
     coin.classList.add('flip');
 
     setTimeout(() => {
-        const outcome = Math.random() < 0.4 ? 'win' : 'lose';  // 40% chance to win
+        let outcome;
+
+        if (betAmount > 170) {
+            // Apply 20% lose rate for bets greater than 170 diamonds
+            outcome = Math.random() < 0.2 ? 'lose' : 'win';
+        } else {
+            outcome = Math.random() < 0.4 ? 'win' : 'lose';  // 40% chance to win
+        }
+
         if (outcome === 'win') {
             balance += betAmount * 0.5;
             errorElement.textContent = `You won! Your new balance is ${formatBalance(balance)} diamonds.`;
@@ -140,6 +148,7 @@ function placeBet(choice) {
         }
     }, 1000);
 }
+
 
 function cashOut() {
     const encodedBalance = btoa(balance + 'FlorisSmikkelBeer');
