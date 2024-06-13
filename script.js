@@ -90,7 +90,7 @@ function validateVoucher() {
         document.getElementById('balance').textContent = formatBalance(balance);
         showPage('game-page');
     } else {
-        document.getElementById('voucher-error').textContent = 'Invalid voucher code';
+        document.getElementById('voucher-error').textContent = 'Invalide code';
     }
 }
 
@@ -100,17 +100,17 @@ function placeBet(choice) {
     const coin = document.getElementById('coin');
 
     if (isNaN(betAmount)) {
-        errorElement.textContent = 'Please enter a numeric value for the bet amount.';
+        errorElement.textContent = 'Vul een nummer als inzet.';
         return;
     }
     
     if (betAmount <= 0) {
-        errorElement.textContent = 'Bet amount must be greater than zero.';
+        errorElement.textContent = 'Inzet moet meer dan 0 zijn.';
         return;
     }
 
     if (betAmount > balance) {
-        errorElement.textContent = 'Bet amount cannot exceed current balance.';
+        errorElement.textContent = 'Inzet kan niet meer dan huidig saldo zijn.';
         return;
     }
 
@@ -128,11 +128,11 @@ function placeBet(choice) {
         }
 
         if (outcome === 'win') {
-            balance += betAmount * 0.5;
-            errorElement.textContent = `You won! Your new balance is ${formatBalance(balance)} diamonds.`;
+            balance += betAmount * 1;
+            errorElement.textContent = `Je wint! Je saldo is nu ${formatBalance(balance)} diamonds.`;
         } else {
             balance -= betAmount;
-            errorElement.textContent = `You lost! Your new balance is ${formatBalance(balance)} diamonds.`;
+            errorElement.textContent = `Je verliest! Je saldo is nu ${formatBalance(balance)} diamonds.`;
         }
 
         if (balance < 0) {
@@ -182,6 +182,6 @@ function addVoucher() {
         document.getElementById('new-voucher-code').value = '';
         document.getElementById('game-error').textContent = '';
     } else {
-        document.getElementById('game-error').textContent = 'Invalid voucher code';
+        document.getElementById('game-error').textContent = 'Invalide code';
     }
 }
