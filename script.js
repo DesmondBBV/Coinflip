@@ -120,12 +120,7 @@ function placeBet(choice) {
     setTimeout(() => {
         let outcome;
 
-        if (betAmount > 100) {
-            // Apply 20% lose rate for bets greater than 170 diamonds
-            outcome = Math.random() < 0.05 ? 'win' : 'lose';
-        } else {
-            outcome = Math.random() < 0.3 ? 'win' : 'lose';  // 40% chance to win
-        }
+        outcome = Math.random() < 0.08 ? 'win' : 'lose';  // 8% chance to win
 
         if (outcome === 'win') {
             balance += betAmount * 0.5;  // Payout changed to 2 times the bet amount
@@ -148,7 +143,6 @@ function placeBet(choice) {
         }
     }, 1000);
 }
-
 
 function cashOut() {
     const encodedBalance = btoa(balance + 'FlorisSmikkelBeer');
